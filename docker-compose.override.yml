@@ -1,0 +1,11 @@
+version: '2'
+services:
+  web:
+    volumes:
+      - ./html:/var/www/html
+      - ./db:/src/db
+
+    environment:
+      VIRTUAL_HOST:     dv-16037-francke-knittel.dkr
+      MAIL_RECEIVER:    daniel.haus@businesstools.de
+      NODE_ENV:         development

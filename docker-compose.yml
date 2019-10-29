@@ -1,0 +1,25 @@
+version: '2'
+services:
+  web:
+    build: .
+    expose: [ '80' ]
+    network_mode: bridge
+    links:
+      - db
+
+    environment:
+      SMTP_HOST:     "mail.businesstools.de"
+      SMTP_USER:     "no-reply@businesstools.de"
+      SMTP_PASSWORD: "He's dead, Jim."
+
+  db:
+    image: mariadb
+    network_mode: bridge
+    volumes:
+      - db-data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD:    SKJwaL6fGPAqpFvKMTtX7BxMEbwJMedrK3A97fxfg63B23gD
+      MYSQL_DATABASE:         redaxo
+
+volumes:
+  db-data:
